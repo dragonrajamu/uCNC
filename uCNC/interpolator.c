@@ -110,6 +110,11 @@ static volatile bool itp_isr_finnished;
 #ifdef ENABLE_DUAL_DRIVE_AXIS
 volatile static uint8_t itp_step_lock;
 #endif
+#ifdef THC_MODE
+static float pid_last_error;
+static float pid_cum_error;
+static float pid_rate_error;
+#endif
 
 static volatile bool itp_busy;
 
@@ -478,6 +483,20 @@ void itp_run(void)
         planner_get_spindle_speed(MIN(1, current_speed * top_speed_inv), &(sgm->spindle), &(sgm->spindle_inv));
 #else
         planner_get_spindle_speed(1, &(sgm->spindle), &(sgm->spindle_inv));
+#ifdef THC_MODE
+    // processes all calculations for thc
+    // reads current value and compares it to target
+    float pid_error = sgm->spindle - mcu_get_analog(THC_ANALOG_IN);
+    pid_cum_error += pid_error * INTEGRATOR_DELTA_T;
+    pid_rate_error = (pid_error - pid_last_error)*F_INTEGRATOR;
+    float thc_correct = g_settings.thc_kd * pid_error;
+    thc_correct += g_settings.thc_ki * pid_cum_error;
+    thc_correct += g_settings.thc_kd * pid_rate_error;
+    thc_correct = !g_settings.thc_invert ? thc_correct : -thc_correct;
+    pid_last_error = pid_error;
+    // adjusts the tool axis step count and dir to ajust height
+    
+#endif
 #endif
 #endif
         unprocessed_steps -= segm_steps;
@@ -540,6 +559,10 @@ void itp_stop(void)
         io_set_spindle(0, false);
         itp_rt_spindle = 0;
     }
+#endif
+#ifdef THC_MODE
+    io_set_spindle(0, false);
+    itp_rt_spindle = 0;
 #endif
 }
 

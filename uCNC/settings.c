@@ -170,6 +170,12 @@ const settings_t __rom__ default_settings =
 #ifdef LASER_MODE
         .laser_mode = 0,
 #endif
+#ifdef THC_MODE
+        .thc_invert = 0,
+        .thc_kp = 0,
+        .thc_ki = 0,
+        .thc_kd = 0,
+#endif
         .step_enable_invert = DEFAULT_STEP_ENA_INV,
         .step_invert_mask = DEFAULT_STEP_INV_MASK,
         .dir_invert_mask = DEFAULT_DIR_INV_MASK,
@@ -369,6 +375,20 @@ uint8_t settings_change(uint8_t setting, float value)
 #ifdef LASER_MODE
     case 32:
         g_settings.laser_mode = value8;
+        break;
+#endif
+#ifdef THC_MODE
+    case 33:
+        g_settings.thc_invert = value1;
+        break;
+    case 34:
+        g_settings.thc_kp = value;
+        break;
+    case 35:
+        g_settings.thc_ki= value;
+        break;
+    case 36:
+        g_settings.thc_kd = value;
         break;
 #endif
 #ifdef ENABLE_SKEW_COMPENSATION

@@ -68,6 +68,12 @@ typedef struct
 #ifdef LASER_MODE
     uint8_t laser_mode;
 #endif
+#ifdef THC_MODE
+    bool thc_invert;
+    float thc_kp;
+    float thc_ki;
+    float thc_kd;
+#endif
 } settings_t;
 
 #define SETTINGS_ADDRESS_OFFSET 0

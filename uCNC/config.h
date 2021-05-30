@@ -89,7 +89,12 @@
 */
 #define DELAY_ON_RESUME 4
 #define DELAY_ON_SPINDLE_SPEED_CHANGE 1
+
 //#define LASER_MODE
+#define THC_MODE
+#ifdef THC_MODE
+#define THC_ANALOG_IN ANALOG0
+#endif
 #endif
 
 //not implemented

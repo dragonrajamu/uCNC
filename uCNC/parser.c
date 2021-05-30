@@ -1317,6 +1317,14 @@ static uint8_t parser_exec_command(parser_state_t *new_state, parser_words_t *wo
     }
 #endif
 
+#ifdef THC_MODE
+    //thc disabled in nonmodal moves
+    if (new_state->groups.nonmodal)
+    {
+        block_data.spindle = 0;
+    }
+#endif
+
     switch (new_state->groups.nonmodal)
     {
     case G28: //G28
@@ -1379,6 +1387,10 @@ static uint8_t parser_exec_command(parser_state_t *new_state, parser_words_t *wo
             {
                 block_data.spindle = 0;
             }
+#endif
+#ifdef THC_MODE
+            //thc disabled in G0
+            block_data.spindle = 0;
 #endif
         case G1:
             if (block_data.feed == 0)
@@ -1504,6 +1516,10 @@ static uint8_t parser_exec_command(parser_state_t *new_state, parser_words_t *wo
         {
             block_data.spindle = 0;
         }
+#endif
+#ifdef THC_MODE
+            //thc disabled in G0
+            block_data.spindle = 0;
 #endif
         return mc_update_tools(&block_data);
     }
