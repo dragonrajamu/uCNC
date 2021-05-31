@@ -486,6 +486,7 @@ void itp_run(void)
 #ifdef THC_MODE
     // processes all calculations for thc
     // reads current value and compares it to target
+    // uses over simplification since it considers that each itp block to be of fixed size (time frame). This may not be true at very high speeds
     float pid_error = sgm->spindle - mcu_get_analog(THC_ANALOG_IN);
     pid_cum_error += pid_error * INTEGRATOR_DELTA_T;
     pid_rate_error = (pid_error - pid_last_error)*F_INTEGRATOR;
@@ -494,7 +495,22 @@ void itp_run(void)
     thc_correct += g_settings.thc_kd * pid_rate_error;
     thc_correct = !g_settings.thc_invert ? thc_correct : -thc_correct;
     pid_last_error = pid_error;
+    uint16_t thc_steps = (uint16_t)abs(thc_correct);
+    thc_steps <<= 1;
     // adjusts the tool axis step count and dir to ajust height
+    // the step adjustment is in the opposite direction of the motion
+    bool is_opposite = (itp_blk_data[itp_blk_data_write].dirbits&(1<<AXIS_TOOL)) & thc_steps>0;
+    is_opposite |= !(itp_blk_data[itp_blk_data_write].dirbits&(1<<AXIS_TOOL)) & thc_steps<0;
+
+    if(is_opposite)
+    {
+        itp_blk_data[itp_blk_data_write].steps[AXIS_TOOL] -= (itp_blk_data[itp_blk_data_write].steps[AXIS_TOOL]>thc_steps) ? thc_steps : (itp_blk_data[itp_blk_data_write].steps[AXIS_TOOL] - (thc_steps - itp_blk_data[itp_blk_data_write].steps[AXIS_TOOL]));
+        itp_blk_data[itp_blk_data_write].dirbits^=1<<AXIS_TOOL;
+    }
+    else 
+    {
+        itp_blk_data[itp_blk_data_write].steps[AXIS_TOOL] += thc_steps;
+    }
     
 #endif
 #endif

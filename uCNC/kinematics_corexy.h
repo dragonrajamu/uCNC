@@ -25,6 +25,6 @@
 #define AXIS_Y 1
 #define AXIS_Z 2
 #define TOOL_AXIS AXIS_Z
-#define STEPPER_COUNT 3
+#define STEPPER_COUNT AXIS_COUNT
 
 #endif

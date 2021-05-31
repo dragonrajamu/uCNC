@@ -108,6 +108,10 @@
 #define STEP0_EN_BIT 0
 #define STEP0_EN_PORT B
 
+#define ANALOG0_BIT 4
+#define ANALOG0_PORT C
+#define ANALOG0_CHANNEL 4
+
 //Setup the Step Timer used has the heartbeat for µCNC
 #define TIMER_NUMBER 1
 

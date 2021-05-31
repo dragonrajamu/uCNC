@@ -2766,6 +2766,216 @@
 #define DIO35_PRESCALLER PWM15_PRESCALLER
 #endif
 
+//Analog pins
+#ifdef ANALOG0_CHANNEL
+#define DIO67_CHANNEL ANALOG0_CHANNEL
+#if (ANALOG0_CHANNEL < 8)
+#define DIO67_MUX5 0x00
+#else
+#define DIO67_MUX5 0x04
+#endif
+#ifdef ANALOG0_PRESC
+#define DIO67_PRESC ANALOG0_PRESC
+#else
+#define DIO67_PRESC 0
+#endif
+#endif
+#ifdef ANALOG1_CHANNEL
+#define DIO68_CHANNEL ANALOG1_CHANNEL
+#if (ANALOG1_CHANNEL < 8)
+#define DIO68_MUX5 0x00
+#else
+#define DIO68_MUX5 0x04
+#endif
+#ifdef ANALOG1_PRESC
+#define DIO68_PRESC ANALOG1_PRESC
+#else
+#define DIO68_PRESC 0
+#endif
+#endif
+#ifdef ANALOG2_CHANNEL
+#define DIO69_CHANNEL ANALOG2_CHANNEL
+#if (ANALOG2_CHANNEL < 8)
+#define DIO69_MUX5 0x00
+#else
+#define DIO69_MUX5 0x04
+#endif
+#ifdef ANALOG2_PRESC
+#define DIO69_PRESC ANALOG2_PRESC
+#else
+#define DIO69_PRESC 0
+#endif
+#endif
+#ifdef ANALOG3_CHANNEL
+#define DIO70_CHANNEL ANALOG3_CHANNEL
+#if (ANALOG3_CHANNEL < 8)
+#define DIO70_MUX5 0x00
+#else
+#define DIO70_MUX5 0x04
+#endif
+#ifdef ANALOG3_PRESC
+#define DIO70_PRESC ANALOG3_PRESC
+#else
+#define DIO70_PRESC 0
+#endif
+#endif
+#ifdef ANALOG4_CHANNEL
+#define DIO71_CHANNEL ANALOG4_CHANNEL
+#if (ANALOG4_CHANNEL < 8)
+#define DIO71_MUX5 0x00
+#else
+#define DIO71_MUX5 0x04
+#endif
+#ifdef ANALOG4_PRESC
+#define DIO71_PRESC ANALOG4_PRESC
+#else
+#define DIO71_PRESC 0
+#endif
+#endif
+#ifdef ANALOG5_CHANNEL
+#define DIO72_CHANNEL ANALOG5_CHANNEL
+#if (ANALOG5_CHANNEL < 8)
+#define DIO72_MUX5 0x00
+#else
+#define DIO72_MUX5 0x04
+#endif
+#ifdef ANALOG5_PRESC
+#define DIO72_PRESC ANALOG5_PRESC
+#else
+#define DIO72_PRESC 0
+#endif
+#endif
+#ifdef ANALOG6_CHANNEL
+#define DIO73_CHANNEL ANALOG6_CHANNEL
+#if (ANALOG6_CHANNEL < 8)
+#define DIO73_MUX5 0x00
+#else
+#define DIO73_MUX5 0x04
+#endif
+#ifdef ANALOG6_PRESC
+#define DIO73_PRESC ANALOG6_PRESC
+#else
+#define DIO73_PRESC 0
+#endif
+#endif
+#ifdef ANALOG7_CHANNEL
+#define DIO74_CHANNEL ANALOG7_CHANNEL
+#if (ANALOG7_CHANNEL < 8)
+#define DIO74_MUX5 0x00
+#else
+#define DIO74_MUX5 0x04
+#endif
+#ifdef ANALOG7_PRESC
+#define DIO74_PRESC ANALOG7_PRESC
+#else
+#define DIO74_PRESC 0
+#endif
+#endif
+#ifdef ANALOG8_CHANNEL
+#define DIO75_CHANNEL ANALOG8_CHANNEL
+#if (ANALOG8_CHANNEL < 8)
+#define DIO75_MUX5 0x00
+#else
+#define DIO75_MUX5 0x04
+#endif
+#ifdef ANALOG8_PRESC
+#define DIO75_PRESC ANALOG8_PRESC
+#else
+#define DIO75_PRESC 0
+#endif
+#endif
+#ifdef ANALOG9_CHANNEL
+#define DIO76_CHANNEL ANALOG9_CHANNEL
+#if (ANALOG9_CHANNEL < 8)
+#define DIO76_MUX5 0x00
+#else
+#define DIO76_MUX5 0x04
+#endif
+#ifdef ANALOG9_PRESC
+#define DIO76_PRESC ANALOG9_PRESC
+#else
+#define DIO76_PRESC 0
+#endif
+#endif
+#ifdef ANALOG10_CHANNEL
+#define DIO77_CHANNEL ANALOG10_CHANNEL
+#if (ANALOG10_CHANNEL < 8)
+#define DIO77_MUX5 0x00
+#else
+#define DIO77_MUX5 0x04
+#endif
+#ifdef ANALOG10_PRESC
+#define DIO77_PRESC ANALOG10_PRESC
+#else
+#define DIO77_PRESC 0
+#endif
+#endif
+#ifdef ANALOG11_CHANNEL
+#define DIO78_CHANNEL ANALOG11_CHANNEL
+#if (ANALOG11_CHANNEL < 8)
+#define DIO78_MUX5 0x00
+#else
+#define DIO78_MUX5 0x04
+#endif
+#ifdef ANALOG11_PRESC
+#define DIO78_PRESC ANALOG11_PRESC
+#else
+#define DIO78_PRESC 0
+#endif
+#endif
+#ifdef ANALOG12_CHANNEL
+#define DIO79_CHANNEL ANALOG12_CHANNEL
+#if (ANALOG12_CHANNEL < 8)
+#define DIO79_MUX5 0x00
+#else
+#define DIO79_MUX5 0x04
+#endif
+#ifdef ANALOG12_PRESC
+#define DIO79_PRESC ANALOG12_PRESC
+#else
+#define DIO79_PRESC 0
+#endif
+#endif
+#ifdef ANALOG13_CHANNEL
+#define DIO80_CHANNEL ANALOG13_CHANNEL
+#if (ANALOG13_CHANNEL < 8)
+#define DIO80_MUX5 0x00
+#else
+#define DIO80_MUX5 0x04
+#endif
+#ifdef ANALOG13_PRESC
+#define DIO80_PRESC ANALOG13_PRESC
+#else
+#define DIO80_PRESC 0
+#endif
+#endif
+#ifdef ANALOG14_CHANNEL
+#define DIO81_CHANNEL ANALOG14_CHANNEL
+#if (ANALOG14_CHANNEL < 8)
+#define DIO81_MUX5 0x00
+#else
+#define DIO81_MUX5 0x04
+#endif
+#ifdef ANALOG14_PRESC
+#define DIO81_PRESC ANALOG14_PRESC
+#else
+#define DIO81_PRESC 0
+#endif
+#endif
+#ifdef ANALOG15_CHANNEL
+#define DIO82_CHANNEL ANALOG15_CHANNEL
+#if (ANALOG15_CHANNEL < 8)
+#define DIO82_MUX5 0x00
+#else
+#define DIO82_MUX5 0x04
+#endif
+#ifdef ANALOG15_PRESC
+#define DIO82_PRESC ANALOG15_PRESC
+#else
+#define DIO82_PRESC 0
+#endif
+#endif
+
 //COM registers
 #ifndef COM_NUMBER
 #define COM_RX_vect USART_RX_vect
@@ -2849,20 +3059,27 @@
 #define mcu_set_output(diopin) SETBIT(__indirect__(diopin, OUTREG), __indirect__(diopin, BIT))
 #define mcu_clear_output(diopin) CLEARBIT(__indirect__(diopin, OUTREG), __indirect__(diopin, BIT))
 #define mcu_toggle_output(diopin) SETBIT(__indirect__(diopin, OUTREG), __indirect__(diopin, BIT))
-#define mcu_set_pwm(diopin, pwmvalue)                                                    \
-	({                                                                                   \
-		__indirect__(diopin, OCRREG) = pwmvalue;                                         \
-		if (pwmvalue != 0)                                                               \
-		{                                                                                \
-			SETFLAG(__indirect__(diopin, TMRAREG), __indirect__(diopin, ENABLE_MASK));   \
-		}                                                                                \
-		else                                                                             \
-		{                                                                                \
-			CLEARFLAG(__indirect__(diopin, TMRAREG), __indirect__(diopin, ENABLE_MASK)); \
-		}                                                                                \
-	})
+#define mcu_set_pwm(diopin, pwmvalue)                                                        \
+	(                                                                                        \
+		{                                                                                    \
+			__indirect__(diopin, OCRREG) = pwmvalue;                                         \
+			if (pwmvalue != 0)                                                               \
+			{                                                                                \
+				SETFLAG(__indirect__(diopin, TMRAREG), __indirect__(diopin, ENABLE_MASK));   \
+			}                                                                                \
+			else                                                                             \
+			{                                                                                \
+				CLEARFLAG(__indirect__(diopin, TMRAREG), __indirect__(diopin, ENABLE_MASK)); \
+			}                                                                                \
+		})
 #define mcu_get_pwm(diopin) (__indirect__(diopin, OCRREG))
-#define mcu_get_analog(diopin) ({ADMUX=(0x60|ANALOG0_CHANNEL);ADCSRA = (0xC0|ANALOG0_PRESC);while(ADCSRA & 0x40);ADCH;})
+#define mcu_get_analog(diopin) (                                \
+	{                                                           \
+		ADMUX = (0x60 | (__indirect__(diopin, CHANNEL) & 0xF)); \
+		ADCSRB = __indirect__(diopin, MUX5);                    \
+		ADCSRA = (0xC0 | __indirect__(diopin, PRESC));          \
+		ADCH;                                                   \
+	})
 #ifdef PROBE_ISR
 #define mcu_enable_probe_isr() SETFLAG(PROBE_ISRREG, PROBE_ISR_MASK)
 #define mcu_disable_probe_isr() CLEARFLAG(PROBE_ISRREG, PROBE_ISR_MASK)
@@ -2876,7 +3093,5 @@
 
 #define mcu_start_send() SETBIT(UCSRB, UDRIE)
 #define mcu_stop_send() CLEARBIT(UCSRB, UDRIE)
-
-
 
 #endif
