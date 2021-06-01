@@ -81,6 +81,7 @@ extern virtports_t virtualports;
 #define LIMIT_Z 6
 #define LIMIT_Y2 6
 #define PROBE 7
+#define ANALOG0 8
 
 #define INREG virtualports->inputs
 #define mcu_get_input(X) (INREG & (1<<(X)))

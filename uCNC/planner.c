@@ -463,9 +463,15 @@ void planner_get_spindle_speed(float scale, uint8_t *pwm, bool *invert)
         {
             spindle = 0.01f * (float)planner_overrides.spindle_override * spindle;
         }
+        #ifndef THC_MODE
         spindle = MIN(spindle, g_settings.spindle_max_rpm);
         spindle = MAX(spindle, g_settings.spindle_min_rpm);
         *pwm = (uint8_t)truncf(255 * (spindle / g_settings.spindle_max_rpm));
+        #else
+        spindle = MIN(spindle, 255);
+        spindle = MAX(spindle, 0);
+        *pwm = (uint8_t)truncf(255 * (spindle / 255));
+        #endif
     }
 }
 

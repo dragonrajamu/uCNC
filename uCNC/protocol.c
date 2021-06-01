@@ -507,6 +507,13 @@ void protocol_send_ucnc_settings(void)
 #ifdef LASER_MODE
     protocol_send_gcode_setting_line_int(32, g_settings.laser_mode);
 #endif
+#ifdef THC_MODE
+    protocol_send_gcode_setting_line_int(33, g_settings.thc_invert);
+    protocol_send_gcode_setting_line_flt(34, g_settings.thc_kp);
+    protocol_send_gcode_setting_line_flt(35, g_settings.thc_ki);
+    protocol_send_gcode_setting_line_flt(36, g_settings.thc_kd);
+
+#endif
 
 #ifdef ENABLE_SKEW_COMPENSATION
     protocol_send_gcode_setting_line_flt(37, g_settings.skew_xy_factor);
