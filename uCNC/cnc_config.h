@@ -58,7 +58,7 @@ extern "C"
    * */
 
 #ifndef BOARD
-#define BOARD BOARD_UNO
+#define BOARD BOARD_RAMPS14
 #endif
 
   /**
@@ -75,7 +75,7 @@ extern "C"
 #endif
 
 #ifndef KINEMATIC
-#define KINEMATIC KINEMATIC_CARTESIAN
+#define KINEMATIC KINEMATIC_DELTA
 #endif
 
   /**
@@ -251,7 +251,7 @@ extern "C"
    * from 0 to 3. With a value o 0 the DSS will be disabled.
    * */
 
-#define DSS_MAX_OVERSAMPLING 3
+#define DSS_MAX_OVERSAMPLING 0
 #define DSS_CUTOFF_FREQ 500
 
   /**
@@ -302,7 +302,7 @@ extern "C"
    * helps to reduce code size if features are not needed
    * */
 
-  // #define DISABLE_ALL_CONTROLS
+#define DISABLE_ALL_CONTROLS
   // #define DISABLE_ALL_LIMITS
   // #define DISABLE_PROBE
 
@@ -326,7 +326,7 @@ extern "C"
    * For pin diagnostics enables command $P
    * */
 
-  // #define ENABLE_EXTRA_SYSTEM_CMDS
+#define ENABLE_EXTRA_SYSTEM_CMDS
 
   /**
    * Compilation specific options
@@ -336,7 +336,7 @@ extern "C"
    * ensure all variables are set to 0 at start up
    * */
 
-  //#define FORCE_GLOBALS_TO_0
+#define FORCE_GLOBALS_TO_0
 
   /**
    * saves a little program memory bytes but much more slow CRC check
