@@ -243,7 +243,7 @@ uint8_t mc_line(float *target, motion_data_t *block_data)
 
 #if (KINEMATIC == KINEMATIC_DELTA)
     float line_dist = fast_flt_sqrt(inv_dist);
-    inv_dist = 1.0f / inv_dist;
+    inv_dist = 1.0f / line_dist;
 #else
     inv_dist = fast_flt_invsqrt(inv_dist);
 #endif
@@ -310,6 +310,8 @@ uint8_t mc_line(float *target, motion_data_t *block_data)
             {
                 break;
             }
+
+            block_data->is_subsegment = true;
         }
         else
         {
@@ -324,6 +326,7 @@ uint8_t mc_line(float *target, motion_data_t *block_data)
     // stores the new position for the next motion
     memcpy(mc_last_target, target, sizeof(mc_last_target));
     block_data->feed = feed;
+    block_data->is_subsegment = false;
     return error;
 }
 
