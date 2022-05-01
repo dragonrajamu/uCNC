@@ -24,10 +24,8 @@
 #define RESUME_LIGHT DOUT6
 
 // this is the recommended way of creating a listener that gets executed when an event is fired
-// in this case this listener executes on every call of cnc_dotasks_hook inside the main loop
-// this works as long as the cnc_dotask_hook event handler is not overriden
-// pid module does this for this hook event handler so if any pid is enabled this will never get executed
-// to allow both pid and this module to work, pid must be modified to use a listener instead of overriding the hook event handler
+// in this case this listener executes on every call of mod_cnc_dotasks_hook inside the main loop
+// this works as long as the mod_cnc_dotasks_hook event handler is not overriden
 
 void control_signal_lights(void);
 
