@@ -53,7 +53,7 @@ void control_signal_lights(void)
 // the advantage of this is that it gets executed directly when called without having to pass through the default event handler (better performance)
 
 //the following code should be deleted if other modules use the cnc_dotasks event listener
-void cnc_dotasks_hook(void)
+void mod_cnc_dotasks_hook(void)
 {
     control_signal_lights();
 }
