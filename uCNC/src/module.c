@@ -243,4 +243,11 @@ void mod_init(void)
 	ADD_LISTENER(gcode_exec_delegate, m920_exec, gcode_exec_event);
 #endif
 #endif
+
+// this adds the control_signal_lights listener that is executed when cnc_dotasks_hook is called
+// this only works if no PID modules are used because currently the pid overrides the cnc_dotasks_hook weak definition inside modules
+// one work around to use both is to create a listener inside pid to execute the code via listener instead of direct hook override	
+#ifdef ENABLE_MAIN_LOOP_MODULES
+	ADD_LISTENER(cnc_dotasks_delegate, control_signal_lights, cnc_dotasks_event);
+#endif
 }
