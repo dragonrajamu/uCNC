@@ -18,6 +18,8 @@
 
 #include "../cnc.h"
 
+#ifdef ENABLE_MAIN_LOOP_MODULES
+
 #define HOLD_LIGHT DOUT5
 #define RESUME_LIGHT DOUT6
 
@@ -38,3 +40,5 @@ void control_signal_lights(void)
         io_set_output(RESUME_LIGHT, true);
     }
 }
+
+#endif
